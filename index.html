@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Bitácora Maker | Henry Sánchez (tinkiLab)</title>
+  <meta name="description" content="Bitácora maker de Henry Sánchez. Explorando la intersección entre fabricación digital, educación STEAM, economía circular y hardware abierto con Makerdu, FabCoins y tinkiLab.">
+  <meta name="theme-color" content="#0a0f1d">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Background Glow & Grid Overlay -->
+  <div class="bg-grid"></div>
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+
+  <!-- Header / Navigation -->
+  <header class="site-header" id="navbar">
+    <div class="container header-container">
+      <a href="#inicio" class="brand-logo">
+        <span class="logo-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+        </span>
+        <span class="brand-text">Bitácora<span class="accent-cyan">Maker</span></span>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#inicio" class="nav-link active" data-i18n="nav_home">Inicio</a>
+        <a href="#proyectos" class="nav-link" data-i18n="nav_projects">Proyectos</a>
+        <a href="#herramientas" class="nav-link" data-i18n="nav_tools">Taller & Tech</a>
+        <a href="#filosofia" class="nav-link" data-i18n="nav_manifesto">Manifiesto</a>
+        <a href="#contacto" class="nav-link nav-btn-cta">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          <span data-i18n="nav_whatsapp">WhatsApp</span>
+        </a>
+      </nav>
+
+      <!-- Toolbar de Controles: Idioma y Modo Claro/Oscuro -->
+      <div class="header-controls">
+        <!-- Selector Multidioma -->
+        <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Selector de idioma">
+          <button type="button" class="lang-btn active" data-lang="es" title="Cambiar a Español">ES</button>
+          <span class="lang-divider">/</span>
+          <button type="button" class="lang-btn" data-lang="en" title="Switch to English">EN</button>
+        </div>
+
+        <!-- Toggle Modo Claro / Oscuro -->
+        <button type="button" class="theme-toggle-btn" id="themeToggleBtn" aria-label="Cambiar tema claro/oscuro" title="Cambiar modo claro/oscuro">
+          <!-- Icono Sol (se muestra en modo oscuro para invitar a pasar a claro) -->
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <!-- Icono Luna (se muestra en modo claro para invitar a pasar a oscuro) -->
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- Botón Menú Móvil -->
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menú de navegación">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="inicio">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="pulse-dot"></span>
+            <span class="badge-text" data-i18n="hero_badge">Bitácora Maker • tinkiLab & Fab Academy Alum</span>
+          </div>
+
+          <h1 class="hero-title" data-i18n-html="hero_title">
+            Transformando ideas en <span class="gradient-text">átomos y bits</span>
+          </h1>
+
+          <p class="hero-subtitle" data-i18n-html="hero_subtitle">
+            Hola, soy <strong>Henry Sánchez</strong> ("Tío Geny"). Bienvenido a mi espacio de creación, prototipado e investigación. Aquí documento iniciativas que unen la <strong>fabricación digital</strong>, la <strong>educación STEAM</strong> y la <strong>economía circular</strong> para crear tecnología libre con impacto real.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#proyectos" class="btn btn-primary">
+              <span data-i18n="hero_btn_projects">Explorar Proyectos</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a href="#contacto" class="btn btn-whatsapp">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.301-.15-1.78-.878-2.056-.979-.275-.1-.476-.15-.676.15-.2.301-.776.979-.952 1.18-.175.201-.351.226-.652.075-.301-.15-1.272-.469-2.423-1.496-.895-.798-1.5-1.784-1.675-2.085-.175-.301-.019-.464.132-.614.135-.135.301-.351.451-.527.151-.176.201-.301.301-.502.1-.201.05-.376-.025-.527-.075-.15-.676-1.631-.927-2.233-.244-.587-.492-.507-.676-.516l-.577-.01c-.2 0-.527.075-.803.376-.275.301-1.053 1.029-1.053 2.509s1.079 2.91 1.23 3.111c.15.201 2.122 3.24 5.14 4.544.718.31 1.279.496 1.716.635.722.23 1.379.197 1.9.12.58-.088 1.78-.727 2.03-1.43.25-.703.25-1.305.175-1.43-.075-.126-.275-.201-.576-.351z"/>
+                <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.05 21.95l4.908-1.332A9.956 9.956 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.2c-1.64 0-3.17-.48-4.46-1.31l-.32-.2-2.92.79.79-2.85-.21-.33A8.17 8.17 0 0 1 3.8 12c0-4.52 3.68-8.2 8.2-8.2 4.52 0 8.2 3.68 8.2 8.2 0 4.52-3.68 8.2-8.2 8.2z"/>
+              </svg>
+              <span data-i18n="hero_btn_wa">Hablemos por WhatsApp</span>
+            </a>
+          </div>
+
+          <!-- Quick Metrics Bar -->
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-number">STEAM</span>
+              <span class="stat-label" data-i18n="hero_stat_1">Educación Práctica</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-number">Fab Lab</span>
+              <span class="stat-label" data-i18n="hero_stat_2">Red Global & Alum</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-number">Hardware</span>
+              <span class="stat-label" data-i18n="hero_stat_3">3D, CNC & Arduino</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual: Tarjeta Maker Visual del Taller (tinkiLab Hub) -->
+        <div class="hero-visual">
+          <div class="maker-profile-card">
+            <div class="profile-card-header">
+              <div class="live-status">
+                <span class="status-indicator"></span>
+                <span data-i18n="profile_status">Taller Activo • tinkiLab Lima</span>
+              </div>
+              <span class="profile-chip">Fab Academy 2015</span>
+            </div>
+
+            <div class="profile-identity">
+              <div class="profile-avatar">
+                <div class="avatar-inner">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+                    <rect x="9" y="9" width="6" height="6"></rect>
+                    <line x1="9" y1="1" x2="9" y2="4"></line>
+                    <line x1="15" y1="1" x2="15" y2="4"></line>
+                    <line x1="9" y1="20" x2="9" y2="23"></line>
+                    <line x1="15" y1="20" x2="15" y2="23"></line>
+                    <line x1="20" y1="9" x2="23" y2="9"></line>
+                    <line x1="20" y1="14" x2="23" y2="14"></line>
+                    <line x1="1" y1="9" x2="4" y2="9"></line>
+                    <line x1="1" y1="14" x2="4" y2="14"></line>
+                  </svg>
+                </div>
+              </div>
+              <div class="profile-text">
+                <h3 class="profile-name">Henry Sánchez <span class="profile-alias">("Tío Geny")</span></h3>
+                <p class="profile-role" data-i18n="profile_role">Educador Maker & Especialista en Fabricación Digital</p>
+              </div>
+            </div>
+
+            <div class="profile-skills-box">
+              <span class="skills-title" data-i18n="profile_skills_title">Áreas de especialidad:</span>
+              <div class="skills-tags">
+                <span class="skill-tag" data-i18n="skill_1">🖨️ Impresión 3D FDM / SLA</span>
+                <span class="skill-tag" data-i18n="skill_2">⚡ Corte & Grabado Láser</span>
+                <span class="skill-tag" data-i18n="skill_3">🤖 Arduino, ESP32 & IoT</span>
+                <span class="skill-tag" data-i18n="skill_4">📐 Modelado 3D & Paramétrico</span>
+                <span class="skill-tag" data-i18n="skill_5">🎒 Metodologías STEAM</span>
+                <span class="skill-tag" data-i18n="skill_6">🪙 Economía Circular</span>
+              </div>
+            </div>
+
+            <div class="profile-projects-preview">
+              <span class="preview-title" data-i18n="profile_preview_title">Iniciativas en curso:</span>
+              <div class="preview-grid">
+                <div class="preview-mini-card" onclick="openProjectModal('makerdu')">
+                  <span class="mini-indicator cyan"></span>
+                  <div class="mini-info">
+                    <strong>Makerdu</strong>
+                    <small>EdTech & 3D</small>
+                  </div>
+                </div>
+                <div class="preview-mini-card" onclick="openProjectModal('fabcoins')">
+                  <span class="mini-indicator amber"></span>
+                  <div class="mini-info">
+                    <strong>FabCoins</strong>
+                    <small data-i18n="mini_fabcoins">Tokens Fab Lab</small>
+                  </div>
+                </div>
+                <div class="preview-mini-card" onclick="openProjectModal('tinkilab')">
+                  <span class="mini-indicator red"></span>
+                  <div class="mini-info">
+                    <strong>tinkiLab YT</strong>
+                    <small data-i18n="mini_tinkilab">Canal Maker</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="profile-card-footer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="gear-icon">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+              </svg>
+              <span data-i18n="profile_quote">"Aprender haciendo, compartir sin barreras"</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROYECTOS SECTION -->
+    <section class="projects-section" id="proyectos">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            <span data-i18n="projects_tag">Portafolio de Fabricación</span>
+          </div>
+          <h2 class="section-title" data-i18n="projects_title">3 Proyectos en Desarrollo</h2>
+          <p class="section-description" data-i18n="projects_desc">
+            Iniciativas que conectan software, electrónica, economía circular y la formación de nuevas generaciones creadoras.
+          </p>
+
+          <!-- Filtro Interactivo de Proyectos -->
+          <div class="project-filters" id="projectFilters">
+            <button class="filter-btn active" data-filter="all" data-i18n="filter_all">Todos (3)</button>
+            <button class="filter-btn" data-filter="steam" data-i18n="filter_steam">Educación STEAM</button>
+            <button class="filter-btn" data-filter="circular" data-i18n="filter_circular">Economía Circular</button>
+            <button class="filter-btn" data-filter="community" data-i18n="filter_community">Comunidad & YouTube</button>
+          </div>
+        </div>
+
+        <div class="projects-grid">
+          <!-- CARD 1: MAKERDU -->
+          <article class="project-card" data-category="steam" data-project="makerdu">
+            <div class="card-accent accent-makerdu"></div>
+            
+            <div class="card-visual-banner banner-makerdu">
+              <div class="banner-grid-overlay"></div>
+              <div class="banner-cad-box">
+                <div class="cube-wireframe">
+                  <div class="cube-face front"></div>
+                  <div class="cube-face top"></div>
+                  <div class="cube-face right"></div>
+                </div>
+              </div>
+              <span class="banner-tag" data-i18n="card_makerdu_bannertag">Suite CAD Escolar</span>
+            </div>
+
+            <div class="card-header">
+              <div class="project-meta">
+                <span class="project-badge badge-makerdu">STEAM & EdTech</span>
+                <span class="project-id">#01</span>
+              </div>
+              <div class="project-icon-box box-makerdu">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16.5 9.4 7.55 4.24a1.78 1.78 0 0 0-2.5 1.55v12.42a1.78 1.78 0 0 0 2.5 1.55L16.5 14.6a1.78 1.78 0 0 0 0-3.2z"></path>
+                  <circle cx="18" cy="12" r="3"></circle>
+                </svg>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <h3 class="card-title">Makerdu</h3>
+              <p class="card-summary" data-i18n-html="card_makerdu_summary">
+                Plataforma interactiva de <strong>e-learning y diseño maker</strong> desarrollada para democratizar el modelado 3D y la fabricación en centros educativos y talleres escolares.
+              </p>
+
+              <div class="card-features">
+                <div class="feature-bullet">
+                  <span class="bullet-icon">✦</span>
+                  <span data-i18n="card_makerdu_feat1">Transición natural de boceto en papel a archivo STL imprimible</span>
+                </div>
+                <div class="feature-bullet">
+                  <span class="bullet-icon">✦</span>
+                  <span data-i18n="card_makerdu_feat2">Metodología lúdica con retos y juguetes digitales armables</span>
+                </div>
+                <div class="feature-bullet">
+                  <span class="bullet-icon">✦</span>
+                  <span data-i18n="card_makerdu_feat3">Integración directa con corte láser e impresión 3D en aula</span>
+                </div>
+              </div>
+
+              <div class="card-tags">
+                <span class="tag" data-i18n="tag_3d_modeling">Modelado 3D</span>
+                <span class="tag">STEAM</span>
+                <span class="tag">EdTech</span>
+                <span class="tag" data-i18n="tag_3d_printing">Impresión 3D</span>
+              </div>
+            </div>
+
+            <div class="card-footer">
+              <button class="btn-card-action" onclick="openProjectModal('makerdu')">
+                <span data-i18n="btn_view_details">Ver detalles del proyecto</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </button>
+            </div>
+          </article>
+
+          <!-- CARD 2: FABCOINS -->
+          <article class="project-card" data-category="circular" data-project="fabcoins">
+            <div class="card-accent accent-fabcoins"></div>
+
+            <div class="card-visual-banner banner-fabcoins">
+              <div class="banner-grid-overlay"></div>
+              <div class="banner-coin-icon">
+                <div class="coin-ring">
+                  <span>FBC</span>
+                </div>
+              </div>
+              <span class="banner-tag" data-i18n="card_fabcoins_bannertag">Tokenización Fab Lab</span>
+            </div>
+
+            <div class="card-header">
+              <div class="project-meta">
+                <span class="project-badge badge-fabcoins" data-i18n="badge_fabcoins">Economía Circular & Labs</span>
+                <span class="project-id">#02</span>
+              </div>
+              <div class="project-icon-box box-fabcoins">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="9"></circle>
+                  <path d="M14.5 9h-4a1.5 1.5 0 0 0 0 3h3a1.5 1.5 0 0 1 0 3h-4"></path>
+                  <path d="M12 7v2"></path>
+                  <path d="M12 15v2"></path>
+                </svg>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <h3 class="card-title">FabCoins</h3>
+              <p class="card-summary" data-i18n-html="card_fabcoins_summary">
+                Sistema de <strong>créditos colaborativos y moneda social</strong> para la red Fab Lab. Convierte la capacidad ociosa de impresoras 3D, routers CNC y láser en horas de producción accesible mediante misiones maker.
+              </p>
+
+              <div class="card-features">
+                <div class="feature-bullet">
+                  <span class="bullet-icon">✦</span>
+                  <span data-i18n="card_fabcoins_feat1">Aprovechamiento y monetización de maquinaria inactiva</span>
+                </div>
+                <div class="feature-bullet">
+                  <span class="bullet-icon">✦</span>
+                  <span data-i18n="card_fabcoins_feat2">Makers obtienen horas de máquina realizando misiones útiles</span>
+                </div>
+                <div class="feature-bullet">
+                  <span class="bullet-icon">✦</span>
+                  <span data-i18n="card_fabcoins_feat3">Ecosistema circular y solidario sin barreras financieras</span>
+                </div>
+              </div>
+
+              <div class="card-tags">
+                <span class="tag">Fab Labs</span>
+                <span class="tag" data-i18n="tag_circular_economy">Economía Circular</span>
+                <span class="tag" data-i18n="tag_tokenomics">Tokenización</span>
+                <span class="tag" data-i18n="tag_idle_capacity">Capacidad Ociosa</span>
+              </div>
+            </div>
+
+            <div class="card-footer">
+              <button class="btn-card-action" onclick="openProjectModal('fabcoins')">
+                <span data-i18n="btn_view_details">Ver detalles del proyecto</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </button>
+            </div>
+          </article>
+
+          <!-- CARD 3: TINKILAB YOUTUBE -->
+          <article class="project-card" data-category="community" data-project="tinkilab">
+            <div class="card-accent accent-tinkilab"></div>
+
+            <div class="card-visual-banner banner-tinkilab">
+              <div class="banner-grid-overlay"></div>
+              <div class="banner-yt-player">
+                <div class="yt-play-btn">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                  </svg>
+                </div>
+                <span class="yt-live-chip">@tinkiLab en YouTube</span>
+              </div>
+              <span class="banner-tag" data-i18n="card_yt_bannertag">Divulgación Maker</span>
+            </div>
+
+            <div class="card-header">
+              <div class="project-meta">
+                <span class="project-badge badge-tinkilab" data-i18n="badge_yt">Comunidad & Tutoriales</span>
+                <span class="project-id">#03</span>
+              </div>
+              <div class="project-icon-box box-tinkilab">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <h3 class="card-title" data-i18n="card_yt_title">Canal de YouTube @tinkiLab</h3>
+              <p class="card-summary" data-i18n-html="card_yt_summary">
+                Espacio audiovisual práctico conducido por <strong>"Tío Geny"</strong>. Tutoriales directos de impresión 3D, trucos de calibración, electrónica con Arduino y proyectos de laboratorio sin tecnicismos innecesarios.
+              </p>
+
+              <div class="card-features">
+                <div class="feature-bullet">
+                  <span class="bullet-icon">✦</span>
+                  <span data-i18n="card_yt_feat1">Tutoriales paso a paso de diseño 3D y circuitos reales</span>
+                </div>
+                <div class="feature-bullet">
+                  <span class="bullet-icon">✦</span>
+                  <span data-i18n="card_yt_feat2">Resolución de problemas cotidianos de taller y calibración</span>
+                </div>
+                <div class="feature-bullet">
+                  <span class="bullet-icon">✦</span>
+                  <span data-i18n="card_yt_feat3">Comunidad activa con explicaciones claras y entretenidas</span>
+                </div>
+              </div>
+
+              <div class="card-tags">
+                <span class="tag" data-i18n="tag_tutorials">Tutoriales</span>
+                <span class="tag">Arduino & ESP32</span>
+                <span class="tag" data-i18n="tag_3d_printing">Impresión 3D</span>
+                <span class="tag" data-i18n="tag_open_hardware">Hardware Libre</span>
+              </div>
+            </div>
+
+            <div class="card-footer dual-action">
+              <a href="https://www.youtube.com/@tinkilab" target="_blank" rel="noopener noreferrer" class="btn-card-external">
+                <span data-i18n="btn_goto_channel">Ir al Canal</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+              <button class="btn-card-action secondary" onclick="openProjectModal('tinkilab')">
+                <span data-i18n="btn_tech_specs">Ficha técnica</span>
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARSENAL TECNOLÓGICO / HERRAMIENTAS DEL TALLER -->
+    <section class="tools-section" id="herramientas">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+            </svg>
+            <span data-i18n="tools_tag">Laboratorio & Capacidades</span>
+          </div>
+          <h2 class="section-title" data-i18n="tools_title">El Arsenal del Taller</h2>
+          <p class="section-description" data-i18n="tools_desc">
+            Tecnologías, equipos y metodologías con las que damos vida a prototipos funcionales y programas formativos en tinkiLab.
+          </p>
+        </div>
+
+        <div class="tools-grid">
+          <div class="tool-card">
+            <div class="tool-icon">🖨️</div>
+            <h4 data-i18n="tool_1_title">Fabricación Digital</h4>
+            <p data-i18n="tool_1_desc">Impresoras 3D FDM & Resina, Cortadoras Láser CO2, Ruteado CNC y cortadoras de vinil para prototipos rápidos de alta fidelidad.</p>
+          </div>
+          <div class="tool-card">
+            <div class="tool-icon">⚡</div>
+            <h4 data-i18n="tool_2_title">Electrónica & Hardware</h4>
+            <p data-i18n="tool_2_desc">Plataformas Arduino, ESP32 con WiFi/Bluetooth, sensores analógicos y digitales, servomotores y diseño de circuitos PCB.</p>
+          </div>
+          <div class="tool-card">
+            <div class="tool-icon">📐</div>
+            <h4 data-i18n="tool_3_title">Software & CAD/CAM</h4>
+            <p data-i18n="tool_3_desc">Diseño en Autodesk Fusion 360, FreeCAD, Tinkercad, laminadores PrusaSlicer/Cura y software de corte LightBurn.</p>
+          </div>
+          <div class="tool-card">
+            <div class="tool-icon">🎒</div>
+            <h4 data-i18n="tool_4_title">Educación STEAM</h4>
+            <p data-i18n="tool_4_desc">Metodología ABP (Aprendizaje Basado en Proyectos), diseño centrado en el usuario (Design Thinking) y pedagogía maker lúdica.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MANIFIESTO / PILARES -->
+    <section class="manifesto-section" id="filosofia">
+      <div class="container">
+        <div class="manifesto-card">
+          <div class="manifesto-header">
+            <span class="terminal-badge" data-i18n="manifesto_badge">Filosofía de Trabajo</span>
+            <h2 class="manifesto-title" data-i18n="manifesto_title">El Manifiesto Maker de la Bitácora</h2>
+          </div>
+          <div class="manifesto-grid">
+            <div class="pillar-item">
+              <div class="pillar-num">01</div>
+              <h4 data-i18n="pillar_1_title">Aprender Haciendo</h4>
+              <p data-i18n="pillar_1_desc">La teoría cobra sentido cuando pasa por las manos. Cada prototipo fallido es una lección tangible de ingeniería, diseño y resiliencia.</p>
+            </div>
+            <div class="pillar-item">
+              <div class="pillar-num">02</div>
+              <h4 data-i18n="pillar_2_title">Código & Cultura Abierta</h4>
+              <p data-i18n="pillar_2_desc">Compartir esquemáticos, modelos y metodologías multiplica el impacto comunitario y acelera la innovación tecnológica local.</p>
+            </div>
+            <div class="pillar-item">
+              <div class="pillar-num">03</div>
+              <h4 data-i18n="pillar_3_title">Sostenibilidad & Recursos</h4>
+              <p data-i18n="pillar_3_desc">Diseñar pensando en el ciclo de vida, la circularidad de materiales y la optimización de las máquinas existentes en los Fab Labs.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION (WHATSAPP HERO CON CAMPO EDITABLE) -->
+    <section class="contact-section" id="contacto">
+      <div class="container">
+        <div class="contact-wrapper">
+          <div class="contact-header text-center">
+            <div class="section-tag center">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+              </svg>
+              <span data-i18n="contact_tag">Conexión Directa</span>
+            </div>
+            <h2 class="section-title" data-i18n="contact_title">¿Tienes una idea, taller o proyecto maker en mente?</h2>
+            <p class="section-description" data-i18n="contact_desc">
+              Conversemos directamente por WhatsApp. Ya sea para implementar Makerdu en tu institución educativa, colaborar con FabCoins, proponer un tema en tinkiLab o asesoría técnica en fabricación digital.
+            </p>
+          </div>
+
+          <!-- Contact Interactive Card -->
+          <div class="whatsapp-card">
+            <div class="whatsapp-badge">
+              <span class="wa-status-dot"></span>
+              <span data-i18n="wa_badge_reply">Respuesta rápida garantizada</span>
+            </div>
+
+            <div class="whatsapp-card-content">
+              <div class="wa-info-block">
+                <div class="wa-avatar-ring">
+                  <div class="wa-avatar">
+                    <span>HS</span>
+                  </div>
+                </div>
+                <div class="wa-details">
+                  <h3 class="wa-name">Henry Sánchez</h3>
+                  <p class="wa-role" data-i18n="wa_role">Director de tinkiLab • Fab Academy Alum</p>
+                  <p class="wa-number" id="waNumberDisplay">+51 999 999 999</p>
+                </div>
+              </div>
+
+              <!-- Message Preset Selector -->
+              <div class="wa-presets">
+                <label class="preset-label" data-i18n="wa_step1_label">1. Elige un tema o escribe tu mensaje abajo:</label>
+                <div class="preset-options" id="presetButtons">
+                  <button type="button" class="preset-chip active" data-preset="makerdu">
+                    <span data-i18n="preset_makerdu">🎒 Makerdu en colegios</span>
+                  </button>
+                  <button type="button" class="preset-chip" data-preset="fabcoins">
+                    <span data-i18n="preset_fabcoins">🪙 FabCoins & Labs</span>
+                  </button>
+                  <button type="button" class="preset-chip" data-preset="tinkilab">
+                    <span data-i18n="preset_tinkilab">🎥 Colaboración tinkiLab</span>
+                  </button>
+                  <button type="button" class="preset-chip" data-preset="consulting">
+                    <span data-i18n="preset_consulting">⚙️ Consultoría Maker</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Mensaje editable directo -->
+              <div class="custom-msg-box">
+                <label for="customWaMsg" class="preset-label" data-i18n="wa_step2_label">2. Personaliza tu mensaje antes de enviar:</label>
+                <textarea id="customWaMsg" class="custom-textarea" rows="3" data-i18n-placeholder="wa_textarea_placeholder" placeholder="Escribe aquí tu mensaje...">Hola Henry, vi tu Bitácora Maker y me interesa conocer más sobre la plataforma educativa Makerdu para mi colegio/taller.</textarea>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="wa-actions">
+                <a id="waDirectLink" 
+                   href="https://wa.me/51999999999?text=Hola%20Henry,%20vi%20tu%20Bitácora%20Maker%20y%20me%20interesa%20conocer%20más%20sobre%20la%20plataforma%20educativa%20Makerdu%20para%20mi%20colegio/taller." 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="btn-wa-main">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17.472 14.382c-.301-.15-1.78-.878-2.056-.979-.275-.1-.476-.15-.676.15-.2.301-.776.979-.952 1.18-.175.201-.351.226-.652.075-.301-.15-1.272-.469-2.423-1.496-.895-.798-1.5-1.784-1.675-2.085-.175-.301-.019-.464.132-.614.135-.135.301-.351.451-.527.151-.176.201-.301.301-.502.1-.201.05-.376-.025-.527-.075-.15-.676-1.631-.927-2.233-.244-.587-.492-.507-.676-.516l-.577-.01c-.2 0-.527.075-.803.376-.275.301-1.053 1.029-1.053 2.509s1.079 2.91 1.23 3.111c.15.201 2.122 3.24 5.14 4.544.718.31 1.279.496 1.716.635.722.23 1.379.197 1.9.12.58-.088 1.78-.727 2.03-1.43.25-.703.25-1.305.175-1.43-.075-.126-.275-.201-.576-.351z"/>
+                    <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.05 21.95l4.908-1.332A9.956 9.956 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.2c-1.64 0-3.17-.48-4.46-1.31l-.32-.2-2.92.79.79-2.85-.21-.33A8.17 8.17 0 0 1 3.8 12c0-4.52 3.68-8.2 8.2-8.2 4.52 0 8.2 3.68 8.2 8.2 0 4.52-3.68 8.2-8.2 8.2z"/>
+                  </svg>
+                  <span data-i18n="btn_open_wa">Abrir WhatsApp Ahora</span>
+                </a>
+
+                <button type="button" class="btn-wa-copy" id="copyWaBtn" title="Copiar número al portapapeles">
+                  <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                  <span id="copyBtnText" data-i18n="btn_copy_number">Copiar Número</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <div class="brand-logo">
+          <span class="logo-icon sm">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+          </span>
+          <span class="brand-text">Mi Bitácora Maker</span>
+        </div>
+        <p class="footer-tagline" data-i18n="footer_tagline">Construyendo futuros tangibles con fabricación digital, software libre y educación STEAM.</p>
+      </div>
+
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5 data-i18n="footer_col_projects">Proyectos</h5>
+          <ul>
+            <li><a href="javascript:void(0)" onclick="openProjectModal('makerdu')">Makerdu</a></li>
+            <li><a href="javascript:void(0)" onclick="openProjectModal('fabcoins')">FabCoins</a></li>
+            <li><a href="https://www.youtube.com/@tinkilab" target="_blank" rel="noopener">Canal @tinkiLab</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5 data-i18n="footer_col_contact">Contacto & Redes</h5>
+          <ul>
+            <li><a href="https://wa.me/51999999999" target="_blank" rel="noopener">WhatsApp (+51 999 999 999)</a></li>
+            <li><a href="https://www.youtube.com/@tinkilab" target="_blank" rel="noopener">YouTube (@tinkilab)</a></li>
+            <li><a href="https://tinkilab.com" target="_blank" rel="noopener">Sitio Oficial tinkiLab</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-container">
+        <p data-i18n="footer_copyright">© 2026 Henry Sánchez • tinkiLab. Hecho con pasión por el movimiento Maker.</p>
+        <div class="footer-coords" data-i18n="footer_coords">Perú / Red Fab Lab / Cultura Abierta</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING QUICK WHATSAPP BUTTON -->
+  <a href="https://wa.me/51999999999?text=Hola%20Henry,%20vi%20tu%20Bitácora%20Maker%20y%20me%20gustaría%20conversar" 
+     target="_blank" 
+     rel="noopener noreferrer" 
+     class="floating-whatsapp" 
+     aria-label="Contactar a Henry por WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.301-.15-1.78-.878-2.056-.979-.275-.1-.476-.15-.676.15-.2.301-.776.979-.952 1.18-.175.201-.351.226-.652.075-.301-.15-1.272-.469-2.423-1.496-.895-.798-1.5-1.784-1.675-2.085-.175-.301-.019-.464.132-.614.135-.135.301-.351.451-.527.151-.176.201-.301.301-.502.1-.201.05-.376-.025-.527-.075-.15-.676-1.631-.927-2.233-.244-.587-.492-.507-.676-.516l-.577-.01c-.2 0-.527.075-.803.376-.275.301-1.053 1.029-1.053 2.509s1.079 2.91 1.23 3.111c.15.201 2.122 3.24 5.14 4.544.718.31 1.279.496 1.716.635.722.23 1.379.197 1.9.12.58-.088 1.78-.727 2.03-1.43.25-.703.25-1.305.175-1.43-.075-.126-.275-.201-.576-.351z"/>
+      <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.05 21.95l4.908-1.332A9.956 9.956 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.2c-1.64 0-3.17-.48-4.46-1.31l-.32-.2-2.92.79.79-2.85-.21-.33A8.17 8.17 0 0 1 3.8 12c0-4.52 3.68-8.2 8.2-8.2 4.52 0 8.2 3.68 8.2 8.2 0 4.52-3.68 8.2-8.2 8.2z"/>
+    </svg>
+    <span class="tooltip" data-i18n="floating_tooltip">¿Conversamos por WhatsApp?</span>
+  </a>
+
+  <!-- PROJECT DETAILS MODAL -->
+  <div class="modal-overlay" id="projectModal" aria-hidden="true">
+    <div class="modal-container" role="dialog" aria-modal="true">
+      <button class="modal-close" id="modalCloseBtn" aria-label="Cerrar modal">&times;</button>
+      <div class="modal-content" id="modalDynamicContent">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast" id="toastMessage">¡Número copiado al portapapeles!</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
